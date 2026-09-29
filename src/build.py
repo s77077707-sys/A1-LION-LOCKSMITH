@@ -76,9 +76,10 @@ def page(d):
     h1=d['heading']
     if home: h1='Locksmith services in Charlotte, NC'
     body=''
-    paras=d['paragraphs']
+    paras=[] if home else d['paragraphs']
     if home:
         body+='<section class="service-grid" aria-label="Locksmith services">'+''.join(f'<a class="service-card" href="/{x}-locksmith/"><span>{label}</span><span aria-hidden="true">↗</span></a>' for x,label in [('emergency','Emergency locksmith'),('residential','Residential locksmith'),('automotive','Automotive locksmith'),('commercial','Commercial locksmith')])+'</section>'
+        body+='''<section><h2>Lock and key help in Charlotte</h2><p>Locked out, replacing a lost key, or updating the locks at your home or business? Tell us your location and what happened. We can discuss service options, current availability, and pricing before work begins.</p><p>For vehicle service, have the year, make, model, and location ready. For a home or business, describe the door, lock, or key problem and whether you have another way inside.</p></section><section><h2>What happens when you call</h2><p>We ask a few questions about the lock or key issue, confirm where service is needed, and discuss timing and an estimate. Bring proof that you are authorized to access the property or vehicle.</p></section><section><h2>Common questions</h2><h3>Can you help with a car lockout?</h3><p>Call with your vehicle details and location so we can confirm the available options and timing.</p><h3>Can I request a quote online?</h3><p>Use the request form below for nonurgent service. For an urgent lockout, call directly.</p></section>'''
     if path.endswith('-locksmith/') and path not in ['/emergency-locksmith/','/automotive-locksmith/','/commercial-locksmith/','/residential-locksmith/']:
         body+='<p class="notice">Call for current availability and a quote in your area.</p>'
     if path in ['/site-map/','/service-areas/','/blog-posts/']:
