@@ -84,14 +84,19 @@
 
   if (!document.querySelector('#contact-form')) {
     const footer = document.querySelector('.site-footer, footer');
-    if (!footer) return;
-    const wrap = document.createElement('section');
-    wrap.className = 'section contact';
-    wrap.id = 'contact';
-    wrap.innerHTML = '<div class="container"><p class="overline">Request service</p><h2>Tell us what happened.</h2><p>Urgent lockout? Call (704) 840-2555. For quotes, send the form below.</p><p id="form-availability"></p><form id="contact-form"><label>Name <input name="name" autocomplete="name" required></label><label>Phone <input name="phone" type="tel" autocomplete="tel" required></label><label>Email <input name="email" type="email" autocomplete="email"></label><label>City / address <input name="city" autocomplete="address-level2"></label><label>How can we help? <textarea name="message" rows="5" required></textarea></label><label class="trap" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label><button type="submit">Send request</button><p id="form-status" role="status" aria-live="polite"></p></form></div>';
-    footer.parentNode.insertBefore(wrap, footer);
-    const s = document.createElement('script');
-    s.src = '/site.js?v=20260929e';
-    document.body.appendChild(s);
+    if (footer) {
+      const wrap = document.createElement('section');
+      wrap.className = 'section contact';
+      wrap.id = 'contact';
+      wrap.innerHTML = '<div class="container"><p class="overline">Request service</p><h2>Tell us what happened.</h2><p>Urgent lockout? Call (704) 840-2555. For quotes, send the form below.</p><p id="form-availability"></p><form id="contact-form"><label>Name <input name="name" autocomplete="name" required></label><label>Phone <input name="phone" type="tel" autocomplete="tel" required></label><label>Email <input name="email" type="email" autocomplete="email"></label><label>City / address <input name="city" autocomplete="address-level2"></label><label>How can we help? <textarea name="message" rows="5" required></textarea></label><label class="trap" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label><button type="submit">Send request</button><p id="form-status" role="status" aria-live="polite"></p></form></div>';
+      footer.parentNode.insertBefore(wrap, footer);
+      const s = document.createElement('script');
+      s.src = '/site.js?v=20260929e';
+      document.body.appendChild(s);
+    }
   }
+
+  const photos = document.createElement('script');
+  photos.src = '/job-photos.js?v=20260929f';
+  document.body.appendChild(photos);
 })();
