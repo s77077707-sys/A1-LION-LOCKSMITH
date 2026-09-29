@@ -24,7 +24,7 @@
   };
 
   button.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
-  serviceButton.addEventListener('click', () => setServices(!services.classList.contains('open')));
+  serviceButton.addEventListener('click', () => setServices(mobile.matches ? !services.classList.contains('open') : true));
   services.addEventListener('pointerenter', () => { if (!mobile.matches) setServices(true); });
   services.addEventListener('pointerleave', () => { if (!mobile.matches) setServices(false); });
   services.addEventListener('focusin', () => { if (!mobile.matches) setServices(true); });
