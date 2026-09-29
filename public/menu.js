@@ -9,6 +9,14 @@
   const mobile = matchMedia('(max-width:850px)');
   if (!nav || !button || !services || !serviceButton) return;
 
+  const path = location.pathname.replace(/\/+$/, '') || '/';
+  const primary = [...nav.querySelectorAll(':scope > a:not(.nav-call)')];
+  const current = primary.find(a => (a.pathname.replace(/\/+$/, '') || '/') === path);
+  if (current) current.setAttribute('aria-current', 'page');
+  if (['/emergency-locksmith','/automotive-locksmith','/residential-locksmith'].includes(path)) {
+    serviceButton.classList.add('current');
+  }
+
   const setServices = open => {
     services.classList.toggle('open', open);
     serviceButton.setAttribute('aria-expanded', String(open));

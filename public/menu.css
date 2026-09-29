@@ -4,7 +4,7 @@
 .site-header .nav,.header #nav{display:flex;align-items:center;gap:18px;margin-left:auto}
 .site-header .nav>a,.header #nav>a,.nav-services-toggle{font:650 14px/1.4 Inter,Arial,sans-serif;color:#e5e5de;text-decoration:none;white-space:nowrap;background:none;border:0;padding:10px 0;cursor:pointer}
 .site-header .nav>a:hover,.header #nav>a:hover,.nav-services-toggle:hover,
-.site-header .nav>a[aria-current=page],.header #nav>a[aria-current=page],.nav-services.open>.nav-services-toggle{color:#e7c16f}
+.site-header .nav>a[aria-current=page],.header #nav>a[aria-current=page],.nav-services.open>.nav-services-toggle,.nav-services-toggle.current{color:#e7c16f}
 .nav-services{position:relative}
 .nav-services-toggle{display:flex;align-items:center;gap:6px}
 .nav-chevron{font-size:12px;transition:transform .2s ease}
