@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  const recipient = 'Adriansgaragedoor@gmail.com';
+  const recipient = 'A1lionlocksmith@gmail.com';
   res.setHeader('Cache-Control', 'no-store');
   if (req.method === 'GET') return res.status(200).json({ available: Boolean(process.env.RESEND_API_KEY && process.env.CONTACT_FROM) });
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
