@@ -60,24 +60,17 @@
   const path = location.pathname.replace(/\/+$/, '') || '/';
   if (path !== '/') return;
 
+  if (!document.querySelector('link[href*="form-fix.css"]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/form-fix.css?v=20260929j';
+    document.head.appendChild(link);
+  }
+
   if (!document.getElementById('home-form-css')) {
     const css = document.createElement('style');
     css.id = 'home-form-css';
-    css.textContent = `
-.section.contact,#contact{display:block;position:relative;z-index:2;clear:both;padding:72px 0}
-#contact .container{max-width:1120px;margin:0 auto;padding:0 24px}
-#contact-form{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;max-width:740px;margin-top:22px}
-#contact-form label{display:flex;flex-direction:column;gap:8px;color:#d7d8d1;font-size:14px;font-weight:650}
-#contact-form label:nth-of-type(5),
-#contact-form button,
-#contact-form #form-status{grid-column:1 / -1}
-#contact-form .trap{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
-#contact-form input,#contact-form textarea{width:100%;background:#121512;border:1px solid #756b50;color:#f7f6f1;border-radius:8px;padding:12px 14px}
-#contact-form textarea{min-height:140px;resize:vertical}
-#contact-form button[type=submit]{justify-self:start;border:0;border-radius:8px;background:#e7bf46;color:#101c2a;padding:12px 20px;font-weight:800;cursor:pointer}
-@media(max-width:700px){#contact-form{grid-template-columns:1fr}}
-.job-photos{display:block;position:relative;z-index:1;clear:both}
-`;
+    css.textContent = `#contact-form{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;max-width:740px}#contact-form label{display:flex;flex-direction:column}#contact-form .trap{position:absolute;left:-9999px}`; 
     document.head.appendChild(css);
   }
 
