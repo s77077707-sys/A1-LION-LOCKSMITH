@@ -63,15 +63,8 @@
   if (!document.querySelector('link[href*="form-fix.css"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/form-fix.css?v=20260929j';
+    link.href = '/form-fix.css?v=20260929n';
     document.head.appendChild(link);
-  }
-
-  if (!document.getElementById('home-form-css')) {
-    const css = document.createElement('style');
-    css.id = 'home-form-css';
-    css.textContent = `#contact-form{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;max-width:740px}#contact-form label{display:flex;flex-direction:column}#contact-form .trap{position:absolute;left:-9999px}`; 
-    document.head.appendChild(css);
   }
 
   document.querySelectorAll('h2').forEach(h => {
@@ -105,12 +98,12 @@
       wrap.innerHTML = '<div class="container"><p class="overline">Request service</p><h2>Tell us what happened.</h2><p>Urgent lockout? Call (704) 840-2555. For quotes, send the form below.</p><p id="form-availability"></p><form id="contact-form"><label>Name <input name="name" autocomplete="name" required></label><label>Phone <input name="phone" type="tel" autocomplete="tel" required></label><label>Email <input name="email" type="email" autocomplete="email"></label><label>City / address <input name="city" autocomplete="address-level2"></label><label>How can we help? <textarea name="message" rows="5" required></textarea></label><label class="trap" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label><button type="submit">Send request</button><p id="form-status" role="status" aria-live="polite"></p></form></div>';
       footer.parentNode.insertBefore(wrap, footer);
       const s = document.createElement('script');
-      s.src = '/site.js?v=20260929f';
+      s.src = '/site.js?v=20260929n';
       document.body.appendChild(s);
     }
   }
 
   const photos = document.createElement('script');
-  photos.src = '/job-photos.js?v=20260929i';
+  photos.src = '/job-photos.js?v=20260929n';
   document.body.appendChild(photos);
 })();
