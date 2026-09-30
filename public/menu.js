@@ -106,6 +106,24 @@
   const photos = document.createElement('script');
   photos.src = '/job-photos.js?v=20260930a';
   document.body.appendChild(photos);
+
+  if (!document.querySelector('#location-map')) {
+    const footer = document.querySelector('.site-footer, footer');
+    if (footer) {
+      if (!document.querySelector('style[data-map]')) {
+        const css = document.createElement('style');
+        css.setAttribute('data-map', '1');
+        css.textContent = '.location-map{padding:48px 0}.location-map .container{max-width:1180px;margin:0 auto;padding:0 20px}.location-map .overline{letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:#bb9443;margin:0 0 8px}.location-map h2{margin:0 0 8px;font-size:clamp(28px,4vw,42px)}.location-map .map-meta{color:#b8bab5;margin:0 0 18px}.location-map .map-frame{border:1px solid #ffffff20;border-radius:16px;overflow:hidden;background:#1b1d1b}.location-map iframe{display:block;width:100%;height:min(420px,70vw);border:0}';
+        document.head.appendChild(css);
+      }
+      const map = document.createElement('section');
+      map.className = 'section location-map';
+      map.id = 'location-map';
+      map.innerHTML = '<div class="container"><p class="overline">Charlotte location</p><h2>Find A-1 Lion Locksmith</h2><p class="map-meta">1009 N Caldwell St apt 1610, Charlotte, NC 28206 \u00b7 (704) 840-2555 \u00b7 NC License #2313</p><div class="map-frame"><iframe title="A-1 Lion Locksmith map \u2014 1009 N Caldwell St, Charlotte, NC" src="https://maps.google.com/maps?q=1009%20N%20Caldwell%20St%20apt%201610%2C%20Charlotte%2C%20NC%2028206&hl=en&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div></div>';
+      const contact = document.querySelector('#contact');
+      footer.parentNode.insertBefore(map, contact || footer);
+    }
+  }
 })();
 
 (() => {
