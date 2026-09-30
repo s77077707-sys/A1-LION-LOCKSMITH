@@ -63,7 +63,7 @@
   if (!document.querySelector('link[href*="form-fix.css"]')) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = '/form-fix.css?v=20260929p';
+    link.href = '/form-fix.css?v=20260930a';
     document.head.appendChild(link);
   }
 
@@ -86,7 +86,7 @@
 
   const footerBrand = document.querySelector('.site-footer p, footer p');
   if (footerBrand && /Charlotte, NC \u00b7 NC Locksmith License/.test(footerBrand.textContent) && !/Caldwell/.test(document.body.innerText)) {
-    footerBrand.insertAdjacentHTML('afterend', '<p>Also known as ES Locksmith \u00b7 1009 N Caldwell St, Charlotte, NC 28206</p>');
+    footerBrand.insertAdjacentHTML('afterend', '<p>Also known as ES Locksmith \u00b7 1009 N Caldwell St, Ste 1610, Charlotte, NC 28206</p>');
   }
 
   if (!document.querySelector('#contact-form')) {
@@ -98,12 +98,12 @@
       wrap.innerHTML = '<div class="container"><p class="overline">Request service</p><h2>Tell us what happened.</h2><p>Urgent lockout? Call (704) 840-2555. Have the address and lock or vehicle details ready.</p><p id="form-availability"></p><form id="contact-form"><label>Name <input name="name" autocomplete="name" required></label><label>Phone <input name="phone" type="tel" autocomplete="tel" required></label><label>Email <input name="email" type="email" autocomplete="email"></label><label>City / address <input name="city" autocomplete="address-level2"></label><label>How can we help? <textarea name="message" rows="5" required></textarea></label><label class="trap" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label><button type="submit">Send request</button><p id="form-status" role="status" aria-live="polite"></p></form></div>';
       footer.parentNode.insertBefore(wrap, footer);
       const s = document.createElement('script');
-      s.src = '/site.js?v=20260929p';
+      s.src = '/site.js?v=20260930a';
       document.body.appendChild(s);
     }
   }
 
   const photos = document.createElement('script');
-  photos.src = '/job-photos.js?v=20260929p';
+  photos.src = '/job-photos.js?v=20260930a';
   document.body.appendChild(photos);
 })();
