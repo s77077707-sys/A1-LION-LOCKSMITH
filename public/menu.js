@@ -1,4 +1,4 @@
-/* Header menu + small homepage trust/NAP/form fixes */
+/* Header menu + homepage trust/NAP/form fixes */
 (() => {
   const header = document.querySelector('.site-header,.header');
   if (!header) return;
@@ -60,6 +60,27 @@
   const path = location.pathname.replace(/\/+$/, '') || '/';
   if (path !== '/') return;
 
+  if (!document.getElementById('home-form-css')) {
+    const css = document.createElement('style');
+    css.id = 'home-form-css';
+    css.textContent = `
+.section.contact,#contact{display:block;position:relative;z-index:2;clear:both;padding:72px 0}
+#contact .container{max-width:1120px;margin:0 auto;padding:0 24px}
+#contact-form{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;max-width:740px;margin-top:22px}
+#contact-form label{display:flex;flex-direction:column;gap:8px;color:#d7d8d1;font-size:14px;font-weight:650}
+#contact-form label:nth-of-type(5),
+#contact-form button,
+#contact-form #form-status{grid-column:1 / -1}
+#contact-form .trap{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}
+#contact-form input,#contact-form textarea{width:100%;background:#121512;border:1px solid #756b50;color:#f7f6f1;border-radius:8px;padding:12px 14px}
+#contact-form textarea{min-height:140px;resize:vertical}
+#contact-form button[type=submit]{justify-self:start;border:0;border-radius:8px;background:#e7bf46;color:#101c2a;padding:12px 20px;font-weight:800;cursor:pointer}
+@media(max-width:700px){#contact-form{grid-template-columns:1fr}}
+.job-photos{display:block;position:relative;z-index:1;clear:both}
+`;
+    document.head.appendChild(css);
+  }
+
   document.querySelectorAll('h2').forEach(h => {
     if (/NCmade simple/i.test(h.textContent) || /Charlotte, NC\s*made simple/i.test(h.textContent.replace(/\s+/g,' '))) {
       h.innerHTML = 'Locksmith services in Charlotte, NC';
@@ -91,12 +112,12 @@
       wrap.innerHTML = '<div class="container"><p class="overline">Request service</p><h2>Tell us what happened.</h2><p>Urgent lockout? Call (704) 840-2555. For quotes, send the form below.</p><p id="form-availability"></p><form id="contact-form"><label>Name <input name="name" autocomplete="name" required></label><label>Phone <input name="phone" type="tel" autocomplete="tel" required></label><label>Email <input name="email" type="email" autocomplete="email"></label><label>City / address <input name="city" autocomplete="address-level2"></label><label>How can we help? <textarea name="message" rows="5" required></textarea></label><label class="trap" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label><button type="submit">Send request</button><p id="form-status" role="status" aria-live="polite"></p></form></div>';
       footer.parentNode.insertBefore(wrap, footer);
       const s = document.createElement('script');
-      s.src = '/site.js?v=20260929e';
+      s.src = '/site.js?v=20260929f';
       document.body.appendChild(s);
     }
   }
 
   const photos = document.createElement('script');
-  photos.src = '/job-photos.js?v=20260929f';
+  photos.src = '/job-photos.js?v=20260929i';
   document.body.appendChild(photos);
 })();
