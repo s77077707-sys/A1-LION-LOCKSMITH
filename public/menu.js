@@ -119,7 +119,7 @@
       const map = document.createElement('section');
       map.className = 'section location-map';
       map.id = 'location-map';
-      map.innerHTML = '<div class="container"><p class="overline">Charlotte location</p><h2>Find A-1 Lion Locksmith</h2><p class="map-meta">1009 N Caldwell St apt 1610, Charlotte, NC 28206 \u00b7 (704) 840-2555 \u00b7 NC License #2313</p><div class="map-frame"><iframe title="A-1 Lion Locksmith map \u2014 1009 N Caldwell St, Charlotte, NC" src="https://maps.google.com/maps?q=1009%20N%20Caldwell%20St%20apt%201610%2C%20Charlotte%2C%20NC%2028206&hl=en&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div></div>';
+      map.innerHTML = '<div class="container"><p class="overline">Charlotte location</p><h2>Find A-1 Lion Locksmith</h2><p class="map-meta">1009 N Caldwell St #1610, Charlotte, NC 28206 \u00b7 (704) 840-2555 \u00b7 NC License #2313 \u00b7 <a href="https://maps.app.goo.gl/cGXdJs7PtRqea7QW7?g_st=ic" rel="noopener noreferrer" target="_blank">Open in Google Maps</a></p><div class="map-frame"><iframe title="A-1 Lion Locksmith on Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3259.4!2d-80.8306!3d35.2363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8856a1732673b51d%3A0xdd8cee430b812e43!2sA-1%20Lion%20Locksmith!5e0!3m2!1sen!2sus" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div></div>';
       const contact = document.querySelector('#contact');
       footer.parentNode.insertBefore(map, contact || footer);
     }
