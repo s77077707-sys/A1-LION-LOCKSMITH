@@ -2,7 +2,10 @@
 const path=location.pathname.replace(/\/+$/,"")||"/";
 if(path!=="/")return;
 if(document.querySelector(".job-photos"))return;
-const files=[["/media/job-photo-1.svg","A-1 Lion Locksmith with a customer after car key service in Charlotte","Car key service completed for a Charlotte customer."],["/media/job-photo-2.svg","A-1 Lion Locksmith with a customer holding a new programmed car remote","New remote programmed on-site."]];
+const files=[
+  {jpg:"/media/job-photo-1.jpg",svg:"/media/job-photo-1.svg",alt:"A-1 Lion Locksmith with a customer after car key service in Charlotte",caption:"Car key service completed for a Charlotte customer."},
+  {jpg:"/media/job-photo-2.jpg",svg:"/media/job-photo-2.svg",alt:"A-1 Lion Locksmith with a customer holding a new programmed car remote",caption:"New remote programmed on-site."}
+];
 const host=document.createElement("section");
 host.className="section job-photos";
 host.innerHTML='<div class="container"><div class="section-heading"><div><p class="overline">Real calls</p><h2>On the job in Charlotte.</h2></div><p>Licensed locksmith work after car key and lockout service. NC License #2313.</p></div><div class="job-photo-grid"></div></div>';
@@ -14,15 +17,20 @@ const contact=document.querySelector("#contact,.section.contact");
 const footer=document.querySelector(".site-footer,footer");
 if(contact)contact.insertAdjacentElement("beforebegin",host);
 else if(footer)footer.insertAdjacentElement("beforebegin",host);
-files.forEach(([url,alt,caption])=>{
+files.forEach(item=>{
   const img=document.createElement("img");
-  img.alt=alt;
-  img.src=url+"?v=20260929i";
+  img.alt=item.alt;
   img.loading="lazy";
+  img.src=item.jpg+"?v=20260929k";
+  img.addEventListener("error",()=>{
+    if(img.dataset.tried==="svg")return;
+    img.dataset.tried="svg";
+    img.src=item.svg+"?v=20260929k";
+  },{once:false});
   const fig=document.createElement("figure");
   fig.appendChild(img);
   const cap=document.createElement("figcaption");
-  cap.textContent=caption;
+  cap.textContent=item.caption;
   fig.appendChild(cap);
   grid.appendChild(fig);
 });
