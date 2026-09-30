@@ -86,7 +86,7 @@
 
   const footerBrand = document.querySelector('.site-footer p, footer p');
   if (footerBrand && /Charlotte, NC \u00b7 NC Locksmith License/.test(footerBrand.textContent) && !/Caldwell/.test(document.body.innerText)) {
-    footerBrand.insertAdjacentHTML('afterend', '<p>Also known as ES Locksmith \u00b7 1009 N Caldwell St, Ste 1610, Charlotte, NC 28206</p>');
+    footerBrand.insertAdjacentHTML('afterend', '<p>Also known as ES Locksmith \u00b7 1009 N Caldwell St apt 1610, Charlotte, NC 28206</p>');
   }
 
   if (!document.querySelector('#contact-form')) {
@@ -106,4 +106,12 @@
   const photos = document.createElement('script');
   photos.src = '/job-photos.js?v=20260930a';
   document.body.appendChild(photos);
+})();
+
+(() => {
+  if (document.querySelector('script[src*="entity.js"]')) return;
+  const s = document.createElement('script');
+  s.src = '/entity.js?v=20260930a';
+  s.defer = true;
+  document.head.appendChild(s);
 })();
